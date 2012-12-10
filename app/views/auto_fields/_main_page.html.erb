@@ -1,0 +1,9 @@
+<% content_for :header_tags do %>
+	<%= stylesheet_link_tag :auto_fields, :plugin => 'auto_fields'  %>
+	<%= javascript_include_tag :af_main, :plugin => 'auto_fields' %>
+<% end %>
+
+<% html_title(l(:auto_fields_h2_ref)) -%>
+<h2><%=l(:auto_fields_h2_ref) %></h2>
+
+<%= render_tabs auto_fields_settings_tabs %>

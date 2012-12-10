@@ -1,0 +1,6 @@
+<% if(Setting.plugin_auto_fields['enable'] == 'true') %>
+<%= javascript_include_tag 'hidden_fields.js', :plugin => 'auto_fields' %>
+<%= stylesheet_link_tag :auto_fields, :plugin => 'auto_fields'  %>
+
+	<%= IssuesHelper.get_hidden_fields(@issue) %>	
+<% end %>

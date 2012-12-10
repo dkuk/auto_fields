@@ -1,0 +1,89 @@
+ru:
+ label_enable_auto_fields: Включить вычисляемые значения полей
+ label_tune_auto_fields: Настроить вычисляемые значения
+ auto_fields_h2_ref: Настройки полей задач
+ auto_fields_h3_add: Добавить новое вычисляемое значение
+ auto_fields_h3_edit: Редактировать вычисляемые значение
+ field_custom_field: Настраеваемое поле
+ auto_field_create_apply: Новое вычисляемое значение добавлено
+ hidden_field_create_apply: Новое скрытое поле добавлено
+ auto_fields_button_create: Добавить
+ auto_fields_button_update: Сохранить
+ auto_fields_uniqueness: . Уже есть такое вычисляемое значение
+ auto_field_delete_quest: Точно удалить?
+ auto_field_delete: Удалить  
+ hidden_fields_delete: Удалить  
+ auto_field_delete_mess: Вычисляемое значение удалено
+ hidden_field_delete_mess: Поля сделаны видимыми
+ auto_fields_value: Значение
+ auto_field_status_label: Переведена в статус
+ auto_field_visible_label: Редактируемо
+ auto_field_yes: Да
+ auto_field_no: Нет
+ auto_field_apply: Применить
+ auto_field_edit_mess: Вычисляемое значение применено
+ admin_menu_auto_fields: Настройки полей задач
+ label_auto_fields: Вычисляемые значения
+ label_hidden_fields: Скрытые поля
+ hidden_field_h3_add: Скрыть поле
+ hidden_fields_delete_quest: Точно удалить?
+ hidden_fields_h3_edit: Редактирование видимости полей
+ hidden_fields_condition: Условие закрытия
+ or: или
+ any: Любой
+ all: Все
+ label_issue_field: Стандартное поле
+ auto_field_all_table: Всю форму
+ auto_field_all_form_label: Закрыть всю форму
+ disabled_field_h3_edit: Редактирование неактивного поля
+ required_field_h3_edit: Редактирование обязательного для заполнения поля
+ hidden_field_h3_edit: Редактирование скрытого поля
+ 
+ auto_field_no_rewrite_label: Не перезаписывать
+ 
+ label_current_issue_status: Текущий статус
+ label_updated_issue_status: Новый статус
+ label_pattern: Шаблон значения
+ 
+ disabled_field_h3_add: Сделать поле неактивным
+ disabled_fields_h3_edit: Редактирование неактивных полей
+ disabled_field_create_apply: Новое неактивное поле добавлено
+ disabled_fields_delete_quest: Точно удалить? 
+ disabled_fields_delete: Удалить   
+ label_disabled_fields: Не активные поля
+ disabled_field_delete_mess: Неактивное поле удалено
+ label_role_no: Роль не
+ any_other: Любая другая
+ label_no_role: Не имеет роль
+  
+ required_field_h3_add: Сделать поле обязательным для заполнения
+ required_fields_h3_edit: Редактирование обязательных для заполнения полей
+ required_field_create_apply: Новое обязательное для заполнения поле добавлено
+ required_fields_delete_quest: Точно удалить? 
+ required_fields_delete: Удалить   
+ label_required_fields: Обязательные поля 
+ required_field_delete_mess: Обязательное для заполнения поле удалено
+ should_not_be_blank: " не должно быть пустым"
+ you_should_not_save_this_tracker: "Вы не можете сохранять задания с этим типом задания"
+ 
+ label_tracker_roles: "Типы задач"
+ tracker_roles_h3_add: "Добавить разрешение на определенные типы задач"
+ tracker_role_create_apply: "Новое разрешение на создание задач определенного типа создано"
+ tracker_roles_delete: "Удалить"
+ tracker_roles_h3_edit: "Разрешения на типы задач"
+ tracker_role_delete_mess: "Разрешение на типы задач удалено"
+ tracker_roles_delete_quest: "Точно удалить?"
+ tracker_role_h3_edit: "Редактирование разрешения на типы задач"
+ 
+ field_tags: "Теги"
+ field_issue_checklist: "Чеклисты"
+ field_watchers: "Наблюдатели"
+ nothing_status_label: "Не установлен"
+ 
+ label_for_sb_current_user: "<Текущий пользователь>"
+ label_for_sb_author: "<Автор>"
+ label_for_sb_nobody: "<Пустое значение>"
+ label_for_sb_assigned_to: "<На кого назначена>"
+ label_for_sb_current_date: "<Текущая дата>"
+ 
+ label_time_entry_comments: Комментарий (затраченное время)

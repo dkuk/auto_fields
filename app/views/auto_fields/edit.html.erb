@@ -1,0 +1,52 @@
+
+<% content_for :header_tags do %>
+	<%= stylesheet_link_tag :auto_fields, :plugin => 'auto_fields'  %>
+	<%= javascript_include_tag :af_main, :plugin => 'auto_fields' %>
+<% end %>
+
+<h3><%=l(:hidden_field_h3_edit) %></h3>
+
+<%= form_tag(auto_field_path(@auto_field), :method => :put) do %>
+<%= error_messages_for 'auto_field' %>
+<div class="box tabular">
+<div class="height">
+<p class="left">
+	<label for="issue_fields_id"><%=l(:label_issue_field) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[issue_field]', options_for_select([["-", "nothing"]]+@all_issue_fields, @auto_field.issue_field),  :id => 'issue_fields_id', :style => "width:150px" %>
+</p>
+<p class="left">
+	<label for="сustom_fields_id"><%=l(:label_custom_field) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[custom_field_id]', options_for_select([["-", "nothing"]]+@custom_fields.collect {|t| [t.name, t.id]}, @auto_field.custom_field_id),  :id => 'сustom_fields_id', :style => "width:150px" %>
+</p>
+<p class="left">
+	<label for="tracker_id"><%=l(:label_tracker) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[tracker_id][]', options_for_select([["<"+l(:any)+">", "0"]]+@trackers.collect {|t| [t.name, t.id.to_s]}, @auto_field.tracker_id.map{|e| e.to_s}),  :id => 'tracker_id', :style => "width:150px", :multiple => true, :size => 8 %>
+</p>
+<p class="left">
+	<label for="current_status_id"><%=l(:label_current_issue_status) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[current_status_id][]', options_for_select([["<"+l(:any)+">", "0"]]+[["<"+l(:nothing_status_label)+">", "nothing"]]+@statuses.collect {|t| [t.name, t.id.to_s]}, @auto_field.current_status_id.map{|e| e.to_s}),  :id => 'current_status_id', :style => "width:150px", :multiple => true, :size => 8 %>
+</p>	
+
+<p class="left">
+	<label for="updated_status_id"><%=l(:label_updated_issue_status) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[updated_status_id][]', options_for_select([["<"+l(:any)+">", "0"]]+@statuses.collect {|t| [t.name, t.id.to_s]}, @auto_field.updated_status_id.map{|e| e.to_s}),  :id => 'updated_status_id', :style => "width:150px", :multiple => true, :size => 8 %>
+</p>	
+<p class="left">
+	<label for="updated_role_id"><%=l(:label_role) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[role_id][]', options_for_select([["<"+l(:any)+">", "0"]]+@roles.collect {|t| [t.name, t.id.to_s]}, @auto_field.role_id.map{|e| e.to_s}),  :id => 'role_id', :style => "width:150px", :multiple => true, :size => 8 %>
+</p>
+<p class="left">
+	<label for="pattern_id"><%=l(:label_pattern) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[pattern]', options_for_select(get_auto_field_patterns(), @auto_field.pattern), :id => 'pattern_id' %>
+</p>
+
+</div>
+
+<p>
+<label for="no_rewrite"><%= l(:auto_field_no_rewrite_label) %></label>
+<%= check_box :auto_field, :no_rewrite %>
+</p>
+
+</div>
+<%= submit_tag l(:auto_fields_button_update) %>
+<% end %>

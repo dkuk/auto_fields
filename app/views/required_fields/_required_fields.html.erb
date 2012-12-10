@@ -1,0 +1,75 @@
+<h3><%=l(:required_field_h3_add) %></h3>
+
+<%= labelled_form_for @required_field, :url => {:controller => 'required_fields', :action => 'create'} do |f| %>
+<%= error_messages_for 'required_field' %>
+<div class="box tabular">
+
+<p>
+	<label for="r_f_issue_fields_id"><%=l(:label_issue_field) %><span class="required"> *</span></label>
+	<%= select_tag 'required_field[issue_field][]', options_for_select([["-", "nothing"]]+[[l(:all), "0"]]+@issue_fields_for_required),  :id => 'r_f_issue_fields_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('r_f_issue_fields_id');" %>
+</p>
+
+<p>
+	<label for="r_f_сustom_fields_id"><%=l(:label_custom_field) %><span class="required"> *</span></label>
+	<%= select_tag 'required_field[custom_field_id][]', options_for_select([["-", "nothing"]]+[[l(:all), "0"]]+@custom_fields.collect {|t| [t.name, t.id]}),  :id => 'r_f_сustom_fields_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('r_f_сustom_fields_id');" %>
+</p>
+
+<p>
+	<label for="r_f_tracker_id"><%=l(:label_tracker) %><span class="required"> *</span></label>
+	<%= select_tag 'required_field[tracker_id][]', options_for_select([[l(:any), "0"]]+@trackers.collect {|t| [t.name, t.id]}),  :id => 'r_f_tracker_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('r_f_tracker_id');" %>
+</p>	
+	
+<p>
+	<label for="r_f_status_id"><%=l(:label_issue_status) %><span class="required"> *</span></label>
+	<%= select_tag 'required_field[status_id][]', options_for_select([[l(:any), "0"]]+@statuses.collect {|t| [t.name, t.id]}),  :id => 'r_f_status_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('r_f_status_id');" %>
+</p>	
+	
+<p>
+	<label for="r_f_role_id"><%=l(:label_role) %><span class="required"> *</span></label>
+	<%= select_tag 'required_field[role_id][]', options_for_select([[l(:any), "0"]]+@roles.collect {|t| [t.name, t.id]}),  :id => 'r_f_role_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('r_f_role_id');" %>
+</p>	
+	
+<p>
+	<label for="no_role_id"><%=l(:label_role_no) %><span class="required"> </span></label>
+	<%= select_tag 'required_field[no_role_id][]', options_for_select([["-", "nothing"]]+[[l(:any_other), "0"]]+@roles.inject([]) {|a, t| a.push([t.name, t.id]) if (t.builtin==0); a}),  :id => 'no_role_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('no_role_id');" %>
+</p>	
+	
+</div>
+<%= submit_tag l(:auto_fields_button_create) %>
+<% end %>
+
+<h3><%=l(:required_fields_h3_edit) %></h3>
+
+<table class="list" id="autofields">
+<tr>
+<th><%= l(:label_issue_field) %></th>
+<th><%= l(:label_custom_field) %></th>
+<th><%= l(:label_tracker) %></th>
+<th><%= l(:label_issue_status) %></th>
+<th><%= l(:label_role) %></th>
+<th><%= l(:label_no_role) %></th>
+<th></th>
+<th></th>
+</tr>
+
+<% for hf in @required_fields %> 
+  <tr class="<%= cycle('odd', 'even') %>">  
+
+	<td><%= get_issue_field_names(hf.issue_field, @issue_fields)  %></td>  
+	<td><%= get_custom_field_names(hf.custom_field_id)  %></td>
+	<td><%= get_trakers_names(hf.tracker_id)  %></td>
+	<td><%= get_status_names(hf.status_id) %></td>
+	<td><%= get_role_names(hf.role_id) %></td>
+	<td><%= get_role_names(hf.no_role_id) %></td>
+	<td><%= link_to l(:button_edit), { :controller => :required_fields, :action => :edit, :id => hf.id } %></td>
+	<td><%= link_to l(:required_fields_delete), hf, :confirm => l(:required_fields_delete_quest), :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

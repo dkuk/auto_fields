@@ -1,0 +1,17 @@
+<table cellspacing="15">
+<tr>
+<td><%=l(:label_enable_auto_fields)%></td>
+<td><%=check_box_tag 'settings[enable]', true, @settings['enable'] == "true" %></td>
+</tr>
+
+
+<tr>
+<td><%= link_to l(:label_tune_auto_fields), :controller => "auto_fields", :action => "index" %></td>
+<td></td>
+</tr>
+
+</table>
+
+
+
+

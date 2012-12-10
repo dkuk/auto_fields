@@ -1,0 +1,100 @@
+
+<h3><%=l(:auto_fields_h3_add) %></h3>
+
+<%= labelled_form_for @auto_field, :url => {:controller => 'auto_fields', :action => 'create'} do |f| %>
+<%= error_messages_for 'auto_field' %>
+<div class="box tabular">
+
+<p>
+	<label for="issue_fields_id"><%=l(:label_issue_field) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[issue_field]', options_for_select([["-", "nothing"]]+@all_issue_fields),  :id => 'issue_fields_id', :style => "width:150px" %>
+</p>
+
+<p>
+	<label for="сustom_fields_id"><%=l(:label_custom_field) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[custom_field_id]', options_for_select([["-", "nothing"]]+@custom_fields.collect {|t| [t.name, t.id]}),  :id => 'сustom_fields_id', :style => "width:150px" %>
+</p>
+
+<p>
+	<label for="tracker_id"><%=l(:label_tracker) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[tracker_id][]', options_for_select([["<"+l(:any)+">", "0"]]+@trackers.collect {|t| [t.name, t.id]}),  :id => 'tracker_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('tracker_id');" %>
+</p>	
+	
+<p>
+	<label for="current_status_id"><%=l(:label_current_issue_status) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[current_status_id][]', options_for_select([["<"+l(:any)+">", "0"]]+[["<"+l(:nothing_status_label)+">", "nothing"]]+@statuses.collect {|t| [t.name, t.id]}),  :id => 'current_status_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('current_status_id');" %>
+</p>	
+
+<p>
+	<label for="updated_status_id"><%=l(:label_updated_issue_status) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[updated_status_id][]', options_for_select([["<"+l(:any)+">", "0"]]+@statuses.collect {|t| [t.name, t.id]}),  :id => 'updated_status_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('updated_status_id');" %>
+</p>
+	
+<p>
+	<label for="role_id"><%=l(:label_role) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[role_id][]', options_for_select([["<"+l(:any)+">", "0"]]+@roles.collect {|t| [t.name, t.id]}),  :id => 'role_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('role_id');" %>
+</p>
+
+<p><%= f.check_box :no_rewrite, :label=>l(:auto_field_no_rewrite_label) %></p>
+
+<p>
+	<label for="pattern_id"><%=l(:label_pattern) %><span class="required"> *</span></label>
+	<%= select_tag 'auto_field[pattern]', options_for_select(get_auto_field_patterns()), :id => 'pattern_id' %>
+</p>
+	
+	
+</div>
+<%= submit_tag l(:auto_fields_button_create) %>
+<% end %>
+
+<h3><%=l(:auto_fields_h3_edit) %></h3>
+
+
+<table class="list" id="autofields">
+<tr>
+<th><%= l(:label_issue_field) %></th>
+<th><%= l(:label_custom_field) %></th>
+<th><%= l(:label_tracker) %></th>
+<th><%= l(:label_current_issue_status) %></th>
+<th><%= l(:label_updated_issue_status) %></th>
+<th><%= l(:label_role) %></th>
+<th><%= l(:auto_field_no_rewrite_label) %></th>
+<th><%= l(:label_pattern) %></th>
+<th></th>
+<th></th>
+</tr>
+
+<% for f in @auto_fields %> 
+  <tr class="<%= cycle('odd', 'even') %>">  
+
+	<td><%= get_issue_field_names(f.issue_field, @all_issue_fields)  %></td>  
+	<td>
+	<% if(f.custom_field.nil?) %>
+		x
+	<% else %>
+		<%= f.custom_field.name  %>
+	<% end %>
+	</td>		
+	<td><%= get_trakers_names(f.tracker_id)  %></td>
+	<td><%= get_status_names(f.current_status_id) %></td>
+	<td><%= get_status_names(f.updated_status_id) %></td>
+	<td><%= get_role_names(f.role_id) %></td>
+	<td>
+	<% if f.no_rewrite %>
+		<%=h l(:auto_field_yes) %>
+	<% else %>
+		<%=h l(:auto_field_no) %>
+	<% end %>	
+	</td>
+	<td><nobr><%= get_auto_field_patterns().index(f.pattern) %></nobr></td>
+	
+	<td><%= link_to l(:button_edit), { :controller => :auto_fields, :action => :edit, :id => f.id } %></td>
+	<td><%= link_to l(:disabled_fields_delete), f, :confirm => l(:disabled_fields_delete_quest), :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

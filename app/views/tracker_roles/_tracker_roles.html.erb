@@ -1,0 +1,53 @@
+<h3><%=l(:tracker_roles_h3_add) %></h3>
+
+<%= labelled_form_for @tracker_role, :url => {:controller => 'tracker_roles', :action => 'create'} do |f| %>
+<%= error_messages_for 'tracker_role' %>
+<div class="box tabular">
+
+<p>
+	<label for="t_r_tracker_id"><%=l(:label_tracker) %><span class="required"> *</span></label>
+	<%= select_tag 'tracker_role[tracker_id][]', options_for_select(@trackers.collect {|t| [t.name, t.id]}),  :id => 't_r_tracker_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('t_r_tracker_id');" %>
+</p>	
+
+	
+<p>
+	<label for="t_r_role_id"><%=l(:label_role) %><span class="required"> *</span></label>
+	<%= select_tag 'tracker_role[role_id][]', options_for_select([[l(:any), "0"]]+@roles.collect {|t| [t.name, t.id]}),  :id => 't_r_role_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('t_r_role_id');" %>
+</p>	
+
+
+<p>
+	<label for="t_r_project_id"><%=l(:label_project) %><span class="required"> *</span></label>
+	<%= select_tag 'tracker_role[project_id][]', options_for_select([[l(:any), "0"]]+@projects.collect {|t| [t.name, t.id]}),  :id => 't_r_project_id', :style => "width:150px" %>
+	<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('t_r_project_id');" %>
+</p>
+	
+</div>
+<%= submit_tag l(:auto_fields_button_create) %>
+<% end %>
+
+<h3><%=l(:tracker_roles_h3_edit) %></h3>
+
+
+<table class="list" id="autofields">
+<tr>
+<th><%= l(:label_tracker) %></th>
+<th><%= l(:label_role) %></th>
+<th><%= l(:label_project) %></th>
+<th></th>
+<th></th>
+</tr>
+
+<% for tr in @tracker_roles %> 
+  <tr class="<%= cycle('odd', 'even') %>">  
+
+	<td><%= get_trakers_names(tr.tracker_id)  %></td>
+	<td><%= get_role_names(tr.role_id) %></td>
+	<td><%= get_project_names(tr.project_id) %></td>
+	<td><%= link_to l(:button_edit), { :controller => :tracker_roles, :action => :edit, :id => tr.id } %></td>
+	<td><%= link_to l(:tracker_roles_delete), tr, :confirm => l(:tracker_roles_delete_quest), :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,40 @@
+	
+#autofields
+	{
+	border: 1px solid #E4E4E4;
+	border-collapse: collapse;
+	width: auto;
+	}
+#autofields th
+	{
+	text-align: left;
+	}
+	
+#autofields th, #autofields td
+	{
+	padding: 8px;
+	}
+
+h3
+	{
+	margin-top: 15px;
+	}
+	
+.hidden
+	{
+	display: none;
+	}
+	
+.left
+	{
+	float:left;
+	}
+.tabular p.left
+	{
+	clear: none;
+	}
+	
+.height
+	{
+	overflow: hidden;
+	}

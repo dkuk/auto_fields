@@ -1,0 +1,31 @@
+<% content_for :header_tags do %>
+	<%= stylesheet_link_tag :auto_fields, :plugin => 'auto_fields'  %>
+	<%= javascript_include_tag :af_main, :plugin => 'auto_fields' %>
+<% end %>
+
+
+<h3><%=l(:tracker_role_h3_edit) %></h3>
+
+<%= form_tag(tracker_role_path(@tracker_role), :method => :put) do %>
+<%= error_messages_for 'tracker_role' %>
+<div class="box tabular">
+<div class="height">
+
+<p class="left">
+	<label for="r_f_tracker_id"><%=l(:label_tracker) %><span class="required"> *</span></label>
+	<%= select_tag 'tracker_role[tracker_id][]', options_for_select(@trackers.collect {|t| [t.name, t.id]}, @tracker_role.tracker_id.map{|e| e.to_i}),  :id => 'r_f_tracker_id', :style => "width:150px", :multiple => true, :size => 8 %>
+</p>	
+	
+<p class="left">
+	<label for="r_f_role_id"><%=l(:label_role) %><span class="required"> *</span></label>
+	<%= select_tag 'tracker_role[role_id][]', options_for_select([[l(:any), "0"]]+@roles.collect {|t| [t.name, t.id]}, @tracker_role.role_id.map{|e| e.to_i}),  :id => 'r_f_role_id', :style => "width:150px", :multiple => true, :size => 8 %>
+</p>
+<p class="left">
+	<label for="r_f_project_id"><%=l(:label_project) %><span class="required"> *</span></label>
+	<%= select_tag 'tracker_role[project_id][]', options_for_select([[l(:any), "0"]]+@projects.collect {|t| [t.name, t.id]}, @tracker_role.project_id.map{|e| e.to_i}),  :id => 'r_f_project_id', :style => "width:150px", :multiple => true, :size => 8 %>
+</p>	
+	
+</div>	
+</div>
+<%= submit_tag l(:auto_fields_button_update) %>
+<% end %>

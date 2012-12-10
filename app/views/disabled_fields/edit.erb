@@ -1,0 +1,62 @@
+<% content_for :header_tags do %>
+	<%= stylesheet_link_tag :auto_fields, :plugin => 'auto_fields'  %>
+	<%= javascript_include_tag :af_main, :plugin => 'auto_fields' %>
+<% end %>
+
+
+<h3><%=l(:disabled_field_h3_edit) %></h3>
+
+<% form_tag(disabled_field_path(@disabled_field), :method => :put) do %>
+
+<%= error_messages_for 'disabled_field' %>
+<div class="box tabular">
+<div>
+<p class="left">
+	<label for="d_f_issue_fields_id"><%=l(:label_issue_field) %><span class="required"> *</span></label>
+	<%= select_tag 'disabled_field[issue_field][]', options_for_select([["-", "nothing"]]+[[l(:all), "0"]]+@issue_fields, @disabled_field.issue_field),  :id => 'd_f_issue_fields_id', :style => "width:150px", :multiple => true, :size => 8  %>
+	<!--<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('d_f_issue_fields_id');" %>-->
+</p>
+
+<p class="left">
+	<label for="d_f_сustom_fields_id"><%=l(:label_custom_field) %><span class="required"> *</span></label>
+	<%= select_tag 'disabled_field[custom_field_id][]', options_for_select([["-", "nothing"]]+[[l(:all), "0"]]+@custom_fields.collect {|t| [t.name, t.id.to_s]}, @disabled_field.custom_field_id.map{|e| e.to_s} ),  :id => 'd_f_сustom_fields_id', :style => "width:150px", :multiple => true, :size => 8 %>
+	<!--<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('d_f_сustom_fields_id');" %>-->
+</p>
+
+<p class="left">
+	<label for="d_f_tracker_id"><%=l(:label_tracker) %><span class="required"> *</span></label>
+	<%= select_tag 'disabled_field[tracker_id][]', options_for_select([[l(:any), "0"]]+@trackers.collect {|t| [t.name, t.id.to_s]}, @disabled_field.tracker_id.map{|e| e.to_s}),  :id => 'd_f_tracker_id', :style => "width:150px", :multiple => true, :size => 8 %>
+	<!--<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('d_f_tracker_id');" %>-->
+</p>	
+	
+<p class="left">
+	<label for="d_f_status_id"><%=l(:label_issue_status) %><span class="required"> *</span></label>
+	<%= select_tag 'disabled_field[status_id][]', options_for_select([[l(:any), "0"]]+@statuses.collect {|t| [t.name, t.id.to_s]}, @disabled_field.status_id.map{|e| e.to_s}),  :id => 'd_f_status_id', :style => "width:150px", :multiple => true, :size => 8 %>
+	<!--<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('d_f_status_id');" %>-->
+</p>	
+	
+<p class="left">
+	<label for="d_f_role_id"><%=l(:label_role) %><span class="required"> *</span></label>
+	<%= select_tag 'disabled_field[role_id][]', options_for_select([[l(:any), "0"]]+@roles.collect {|t| [t.name, t.id.to_s]}, @disabled_field.role_id.map{|e| e.to_s}),  :id => 'd_f_role_id', :style => "width:150px", :multiple => true, :size => 8 %>
+	<!--<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('d_f_role_id');" %>-->
+</p>
+
+<% if !@disabled_field.no_role_id.nil?
+	 no_role_id_sel=@disabled_field.no_role_id.map{|e| e.to_s} 
+ end %>
+
+<p class="left">
+	<label for="d_f_no_role_id"><%=l(:label_role_no) %></label>
+	<%= select_tag 'disabled_field[no_role_id][]', options_for_select([["-", "nothing"]]+[[l(:any_other), "0"]]+@roles.inject([]) {|a, t| a.push([t.name.to_s, t.id.to_s]) if (t.builtin==0); a}, no_role_id_sel),  :id => 'd_f_no_role_id', :style => "width:150px", :multiple => true, :size => 8 %>
+	<!--<%= link_to_function image_tag('bullet_toggle_plus.png'), "toggle_multi_select('d_f_no_role_id');" %>-->
+</p>	
+</div>
+
+<p>
+<label for="d_f_role_id"><%= l(:auto_field_all_form_label) %></label>
+<%= check_box :disabled_field, :all_form %>
+</p>
+	
+</div>
+<%= submit_tag l(:auto_fields_button_update) %>
+<% end %>

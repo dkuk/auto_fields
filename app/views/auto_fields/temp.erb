@@ -1,0 +1,53 @@
+<h3><%=l(:auto_fields_h3_add) %></h3>
+
+<% labelled_tabular_form_for :auto_field, @auto_field, :url => {:controller => 'auto_fields', :action => 'create'} do |f| %>
+<%= error_messages_for 'auto_field' %>
+<div class="box tabular">
+	<p><%= f.select :custom_field_id, @custom_field.collect {|t| [t.name, t.id]}, :required => true, :include_blank => true %></p>
+	<p><%= f.select :tracker_id, @trackers.collect {|t| [t.name, t.id]}, :required => true, :include_blank => true %></p>
+	<p><%= f.select :status_id, @statuses.collect {|t| [t.name, t.id]}, :required => true, :include_blank => true, :label=>l(:auto_field_status_label) %></p>
+
+</div>
+<%= submit_tag l(:auto_fields_button_create) %>
+<% end %>
+
+<h3><%=l(:auto_fields_h3_edit) %></h3>
+
+
+<% form_tag(auto_fields_path+"/update_all", :class=>"tabular") do %>
+<div class="box tabular">
+
+<table class="list" id="autofields">
+<tr>
+<th><%= l(:field_custom_field) %></th>
+<th><%= l(:field_tracker) %></th>
+<th><%= l(:auto_field_status_label) %></th>
+<th><%= l(:auto_fields_value) %></th>
+<th></th>
+</tr>
+
+<% name="" %>
+<% css_class="odd" %>
+
+<% for af in @auto_fields %> 
+  <tr class="<%= cycle('odd', 'even') %>">  
+	<td>
+	<%=h af.custom_field.name %>
+	</td>	  
+	<td>
+	<%=h af.tracker.name %>
+	</td>	 	
+	<td>
+	<%=h af.issue_status.name %>
+	</td>
+	<td>
+	<%= select_tag "auto_fields_values["+af.id.to_s+"][pattern]", options_for_select(@AF.getPatterns(af.custom_field.field_format), af.pattern) %>
+	</td>		
+	<td><%= link_to l(:auto_field_delete), af, :confirm => l(:auto_field_delete_quest), :method => :delete %></td>
+	
+  </tr>
+<% end %>
+</table>
+</div>
+<%= submit_tag l(:auto_field_apply) %>
+<% end %>
