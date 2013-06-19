@@ -1,3 +1,90 @@
 # English strings go here for Rails i18n
 en:
-  my_label: "My label"
+ label_enable_auto_fields: Enable Auto Fields
+ label_tune_auto_fields: Configure Auto Fields
+ auto_fields_h2_ref: Auto Fields
+ auto_fields_h3_add: Add auto fields
+ auto_fields_h3_edit: Edit auto fields
+ field_custom_field: Custom field 
+ auto_field_create_apply: Apply create
+ hidden_field_create_apply: Apply create
+ auto_fields_button_create: Create
+ auto_fields_button_update: Update
+ auto_fields_uniqueness: . Auto fields uniqueness
+ auto_field_delete_quest: Request removing auto fields
+ auto_field_delete: Delete auto fields 
+ hidden_fields_delete: Delete hidden fields
+ auto_field_delete_mess: Delete auto fields (mess)
+ hidden_field_delete_mess: Delete hidden fields (mess)
+ auto_fields_value: Auto field value
+ auto_field_status_label: Auto field status
+ auto_field_visible_label: Auto field visibility
+ auto_field_yes: Yes
+ auto_field_no: No
+ auto_field_apply: Apply
+ auto_field_edit_mess: Edit (mess)
+ admin_menu_auto_fields: Auto fields configuration
+ label_auto_fields: Auto field
+ label_hidden_fields: Hidden fields
+ hidden_field_h3_add: Add hidden field
+ hidden_fields_delete_quest: Request removing hidden fields
+ hidden_fields_h3_edit: Edit hidden fields
+ hidden_fields_condition: Condition
+ or: or
+ any: any
+ all: all
+ label_issue_field: Issue fields
+ auto_field_all_table: Entire table
+ auto_field_all_form_label: Entire form
+ disabled_field_h3_edit: Edit disabled field
+ required_field_h3_edit: Required field
+ hidden_field_h3_edit: Hidden field
+ 
+ auto_field_no_rewrite_label: Do not override original value
+ 
+ label_current_issue_status: Current status
+ label_updated_issue_status: Updated status
+ label_pattern: Pattern
+ 
+ disabled_field_h3_add: Add disabled field
+ disabled_fields_h3_edit: Edit disabled field
+ disabled_field_create_apply: Apply create
+ disabled_fields_delete_quest: Apply delete
+ disabled_fields_delete: Delete
+ label_disabled_fields: Disabled fields
+ disabled_field_delete_mess: Delete (mess)
+ label_role_no: Role
+ any_other: Other than
+ label_no_role: Except
+  
+ required_field_h3_add: Add required field
+ required_fields_h3_edit: Edit required field
+ required_field_create_apply: Apply create
+ required_fields_delete_quest: Are you sure?
+ required_fields_delete: Delete
+ label_required_fields: Required fields
+ required_field_delete_mess:  Required fields (mess)
+ should_not_be_blank: " should not be left blank"
+ you_should_not_save_this_tracker: "you are not allowed to use this tracker, check configuration of auto fields plugin"
+ 
+ label_tracker_roles: "Tracker and Roles"
+ tracker_roles_h3_add: "Add Tracker and Roles"
+ tracker_role_create_apply: "Apply Tracjer and Roles"
+ tracker_roles_delete: "Delete"
+ tracker_roles_h3_edit: "Edit"
+ tracker_role_delete_mess: "Delete (mess)"
+ tracker_roles_delete_quest: "Are you sure?"
+ tracker_role_h3_edit: "Edit"
+ 
+ field_tags: Field tags
+ field_issue_checklist: Issue checklist
+ field_watchers: Watchers
+ nothing_status_label: nothing_status_label
+ 
+ label_for_sb_current_user: "<current_user>"
+ label_for_sb_author: "<author>"
+ label_for_sb_nobody: "<nobody>"
+ label_for_sb_assigned_to: "<assignee>"
+ label_for_sb_current_date: "<current_date>"
+ 
+ label_time_entry_comments: Time entry comments
