@@ -1,0 +1,90 @@
+# German strings go here for Rails i18n
+de:
+ label_enable_auto_fields: 'Schlaue Felder' Funktion anschalten
+ label_tune_auto_fields: 'Schlaue Felder' konfigurieren
+ auto_fields_h2_ref: 'Schlaue Felder'
+ auto_fields_h3_add: 'Schlaue Felder' hinzufügen
+ auto_fields_h3_edit: 'Schlaue Felder' ändern
+ field_custom_field: benutzerspezifisches Feld
+ auto_field_create_apply: Erstellung ausführen
+ hidden_field_create_apply: Erstellung ausführen
+ auto_fields_button_create: erstellen
+ auto_fields_button_update: aktualisieren
+ auto_fields_uniqueness: . 'Schlaue Felder' Eindeutigkeit
+ auto_field_delete_quest: Auffordern 'Schlaue Felder' zu entfernen
+ auto_field_delete: 'Schlaue Felder' entfernen 
+ hidden_fields_delete: versteckte Felder entfernen
+ auto_field_delete_mess: 'Schlaue Felder' entfernen (mess)
+ hidden_field_delete_mess: Versteckte Felder entfernen (mess)
+ auto_fields_value: 'Schlaue Felder' Wert
+ auto_field_status_label: 'Schlaue Felder' Status
+ auto_field_visible_label: 'Schlaue Felder' Sichtbarkeit
+ auto_field_yes: Ja
+ auto_field_no: Nein
+ auto_field_apply: Übernehmen
+ auto_field_edit_mess: Ändern (mess)
+ admin_menu_auto_fields: 'Schlaue Felder' konfigurieren
+ label_auto_fields: 'Schlaue Felder'
+ label_hidden_fields: versteckte Felder
+ hidden_field_h3_add: verstecktes Feld hinzufügen
+ hidden_fields_delete_quest: Auffordern versteckte Felder zu entfernen
+ hidden_fields_h3_edit: versteckte Felder ändern
+ hidden_fields_condition: Bedingung
+ or: oder
+ any: jedes
+ all: alle
+ label_issue_field: Ticketfelder
+ auto_field_all_table: gesamte Tabelle
+ auto_field_all_form_label: gesamtes Formular
+ disabled_field_h3_edit: ändere deaktivierts Feld
+ required_field_h3_edit: ändere Pflichtfeld
+ hidden_field_h3_edit: ändere verstecktes Feld
+ 
+ auto_field_no_rewrite_label: Originalwert nicht überschreiben
+ 
+ label_current_issue_status: aktueller Status
+ label_updated_issue_status: aktualisierter Status
+ label_pattern: Muster
+ 
+ disabled_field_h3_add: deaktivierts Feld hinzufügen
+ disabled_fields_h3_edit: ändere deaktivierte Felder
+ disabled_field_create_apply: Erstellung ausführen
+ disabled_fields_delete_quest: Löschung ausführen
+ disabled_fields_delete: löschen
+ label_disabled_fields: deaktivierte Felder
+ disabled_field_delete_mess: löschen (mess)
+ label_role_no: Rolle
+ any_other: anders als
+ label_no_role: ausgenommen
+  
+ required_field_h3_add: Pflichtfeld hinzufügen
+ required_fields_h3_edit: Pflichtfelder ändern
+ required_field_create_apply: Erstellung ausführen
+ required_fields_delete_quest: Sind sie sicher?
+ required_fields_delete: löschen
+ label_required_fields: Pflichtfelder
+ required_field_delete_mess: Pflichtfelder (mess)
+ should_not_be_blank: "darf nicht unbelegt sein"
+ you_should_not_save_this_tracker: "Sie sind nicht berechtigt diesen Tracker zu verwenden. Prüfen sie die 'Schlaue Felder' Plugin Konfiguration"
+ 
+ label_tracker_roles: "Tracker und Rollen"
+ tracker_roles_h3_add: "Tracker und Rollen hinzufügen"
+ tracker_role_create_apply: "Apply Tracker and Roles"
+ tracker_roles_delete: "Löschen"
+ tracker_roles_h3_edit: "Ändern"
+ tracker_role_delete_mess: "Löschen (mess)"
+ tracker_roles_delete_quest: "Sind Sie Sicher?"
+ tracker_role_h3_edit: "Ändern"
+ 
+ field_tags: Felder Tags
+ field_issue_checklist: Ticket Checkliste
+ field_watchers: Beobachter
+ nothing_status_label: Status unbekannt
+ 
+ label_for_sb_current_user: "<aktueller Benutzer>"
+ label_for_sb_author: "<Autor>"
+ label_for_sb_nobody: "<niemand>"
+ label_for_sb_assigned_to: "<Bearbeiter>"
+ label_for_sb_current_date: "<aktuelles Datum>"
+ 
+ label_time_entry_comments: Zeiterfassungskommentare
